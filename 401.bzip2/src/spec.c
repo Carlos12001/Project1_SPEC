@@ -281,11 +281,11 @@ int spec_putc(unsigned char ch, int fd) {
     return ch;
 }
 
-#define MB (1024*1024)
+#define MB (1024*1024/32)
 #ifdef SPEC_CPU
 int main (int argc, char *argv[]) {
     int i, level;
-    int input_size=64, compressed_size;
+    int input_size=1, compressed_size;
     char *input_name="input.combined";
     unsigned char *validate_array;
     seedi = 10;
