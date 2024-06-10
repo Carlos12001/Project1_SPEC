@@ -2,7 +2,7 @@
 SOURCES= spec.c blocksort.c bzip2.c bzlib.c compress.c crctable.c \
 	 decompress.c huffman.c randtable.c
 
-CC=gcc
+CC=riscv64-linux-gnu-gcc
 CFLAGS=-O0
 COMP_FLAGS=-lm -DSPEC_CPU -DNDEBUG -static
 
