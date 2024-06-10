@@ -298,9 +298,9 @@
                         "path": "system.cpu.workload",
                         "cmd": [
                             "./src/benchmark",
-                            "./data/input.program"
+                            "./data/test.txt"
                         ],
-                        "cwd": "/home/carlos/Documents/gem5/Project1_SPEC/401.bzip2",
+                        "cwd": "/home/carlos/Documents/gem5/Project1_SPEC/458.sjeng",
                         "drivers": [],
                         "egid": 100,
                         "env": [],
