@@ -1,0 +1,10 @@
+# Ignorar todo dentro de Outputs
+Outputs/*
+
+# No ignorar directorios dentro de Outputs, para poder aplicar reglas más específicas dentro de ellos
+!Outputs/**/
+
+# No ignorar archivos .png y .csv en cualquier subdirectorio de Outputs
+!Outputs/**/*.png
+!Outputs/**/*.csv
+Outputs/**/**

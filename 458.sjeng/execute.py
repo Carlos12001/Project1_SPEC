@@ -5,10 +5,20 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 
+def prueba(output_dir, architecture, cpu_type, l1d_size, l1i_size, l2_size, l1d_assoc, l1i_assoc, l2_assoc, cacheline_size, l1d_repl_policy, bp_type):
+    script_path = './proyecto2.sh'
+    command = f"bash {script_path} {output_dir} {architecture} {cpu_type} {l1d_size} {l1i_size} {l2_size} {l1d_assoc} {l1i_assoc} {l2_assoc} {cacheline_size} {l1d_repl_policy} {bp_type}"
+
+    start_time = time.time()
+    subprocess.run(command, shell=True)
+    execution_time = time.time() - start_time
+
+    print(f"Execution time: {execution_time:.2f} seconds")
+
 def run_simulations(architecture):
     cpu_types = ['MinorCPU', 'AtomicSimpleCPU']
-    cache_sizes = ['32kB', '64kB', '128kB', '256kB', '512kB']
-    replacement_policies = ['LRURP', 'RRIPRP', 'RandomRP', 'LFURP', 'BIPRP']
+    cache_sizes = ['32kB', '64kB', '128kB']
+    replacement_policies = ['LRURP', 'RandomRP']
     branch_predictors = ['BiModeBP', 'LTAGE', 'TAGE']
 
 
@@ -84,5 +94,7 @@ def plot_results(architecture):
 
 if __name__ == "__main__":
     arch = "ARM"
-    run_simulations(arch)
-    plot_results(arch)
+    prueba(output_dir='./output', architecture='ARM', cpu_type='MinorCPU', l1d_size='64kB', l1i_size='64kB', l2_size='128kB',
+           l1d_assoc=2, l1i_assoc=2, l2_assoc=1, cacheline_size=64, l1d_repl_policy='LRURP', bp_type='TAGE')
+    # run_simulations(arch)
+    # plot_results(arch)
