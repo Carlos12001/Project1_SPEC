@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Parámetros
 OUTPUT_DIR=$1
 ARCH=$2
@@ -12,7 +11,7 @@ L1I_ASSOC=$8
 L2_ASSOC=$9
 CACHELINE_SIZE=${10}
 BP_TYPE=${11}
-REPLACEMENT_POLICY=${12}
+L1D_REPL_POLICY=${12}
 
 # Rutas base y de gem5
 GEM5_DIR="/home/carlos/Documents/gem5/gem5"
@@ -24,6 +23,6 @@ time $GEM5_BINARY -d $OUTPUT_DIR $GEM5_DIR/configs/deprecated/example/se.py \
 --cpu-type=$CPU_TYPE --caches --l2cache \
 --l1d_size=$L1D_SIZE --l1i_size=$L1I_SIZE --l2_size=$L2_SIZE \
 --l1d_assoc=$L1D_ASSOC --l1i_assoc=$L1I_ASSOC --l2_assoc=$L2_ASSOC \
---cacheline_size=$CACHELINE_SIZE \
 --bp-type=$BP_TYPE \
---replacement-policy=$REPLACEMENT_POLICY
+--cacheline_size=$CACHELINE_SIZE \
+--l1d-repl-policy=$L1D_REPL_POLICY 
