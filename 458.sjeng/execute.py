@@ -94,7 +94,14 @@ def plot_results(architecture):
 
 if __name__ == "__main__":
     arch = "ARM"
-    # prueba(output_dir='./output', architecture=arch, cpu_type='MinorCPU', l1d_size='64kB', l1i_size='64kB', l2_size='128kB',
-        #    l1d_assoc=2, l1i_assoc=2, l2_assoc=1, cacheline_size=64, l1d_repl_policy='LRURP', bp_type='TAGE')
-    run_simulations(arch)
-    plot_results(arch)
+    test = True
+    if test:
+        prueba(output_dir='./output', architecture=arch, cpu_type='AtomicSimpleCPU', 
+        l1d_size='64kB', l1i_size='64kB', l2_size='128kB',
+        l1d_assoc=2, l1i_assoc=2, l2_assoc=1, cacheline_size=64, 
+        l1d_repl_policy='LRURP', bp_type='TAGE')
+        pass
+    else:
+        # run_simulations(arch)
+        # plot_results(arch)
+        pass
